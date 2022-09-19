@@ -33,9 +33,9 @@ public class MainApp {
          System.out.println();
       }
 
-      List<Object []> usersCar = userService.SearchUsersByCar("BMW", 12);
-      for (Object [] user : usersCar) {
-         System.out.println(user[0].toString());
+      List<User> usersCar = userService.searchUsersByCar("BMW", 12);
+      for (User user : usersCar) {
+         System.out.println(user.toString());
          System.out.println();
       }
 

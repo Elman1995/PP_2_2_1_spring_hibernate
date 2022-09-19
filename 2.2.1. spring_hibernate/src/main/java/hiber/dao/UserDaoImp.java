@@ -33,8 +33,8 @@ public class UserDaoImp implements UserDao {
 
    @Override
    @SuppressWarnings("unchecked")
-   public List<Object []> SearchUsersByCar(String model, int series) {
-      Query query = sessionFactory.getCurrentSession().createQuery("FROM User as user INNER JOIN user.usCar as car WITH car.model = :model AND car.series = :series");
+   public List<User> searchUsersByCar(String model, int series) {
+      TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("FROM User as user WHERE user.usCar.model = :model AND user.usCar.series = :series");
       query.setParameter("model", model);
       query.setParameter("series", series);
       return query.getResultList();
